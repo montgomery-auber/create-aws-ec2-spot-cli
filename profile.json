@@ -1,0 +1,9 @@
+{
+  "ImageId": "ami-06eaa470bd130095d",
+  "KeyName": "Dassie-N.virginia-1",
+  "SecurityGroupIds": [ "sg-11031367" ],
+  "InstanceType": "t3.micro",
+  "Placement": {
+    "AvailabilityZone": "us-east-1c"
+  }
+}

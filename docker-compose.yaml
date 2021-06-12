@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  launchspot:
+    container_name: launchspot
+    image: amazon/aws-cli
+    restart: "no"
+    volumes:
+      - .aws-PATH-to-credentials-for-aws-cli/root/.aws 
+      - ./:/launch-spot/ 
+    command: ["ec2", "request-spot-instances", "--spot-price", "0.03", "--instance-count", "1", "--type", "one-time", "--launch-specification", "file:///launch-spot/profile.json"]
+
+# Comments not allowed in Json, so put them here.    
+# default amazonlinux2 ami - ami-0d5eff06f840b45e9
+
+# docker run --net host --rm  -v /mnt/c/Users/rabis/OneDrive/samples/Charming/aws-credentials/csv/.aws:/root/.aws amazon/aws-cli ec2 request-spot-instances --spot-price "0.03" --instance-count 1 --type "one-time" --launch-specification file:///mnt/c/Users/rabis/OneDrive/samples/Charming/scripts/launch-spot/profile.json
+
+#  ec2 request-spot-instances --spot-price "0.03" --instance-count 1 --type "one-time" --launch-specification file:///launch-spot/profile.json
